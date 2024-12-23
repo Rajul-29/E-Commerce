@@ -7,9 +7,15 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
+const { get } = require("http");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin:["https://sportzbuy.vercel.app/"],
+    methods: ["POST", "GET"],
+    credentials:true
+    }
+));
 
 // Database Connection With MongoDB
 mongoose.connect("mongodb+srv://rajul29:be8bykKdRpZZNvV4@cluster0.ckw0q.mongodb.net/e-commerce");
@@ -255,12 +261,16 @@ app.post('/getcart',fetchUser, async (req,res)=>{
     res.json(userData.cartData);
 })
 
-app.listen(port,(error)=>{
-    if (!error){
-        console.log("Server Running on Port "+port)
-    }
-    else
-    {
-        console.log("Error : "+error)
-    }
-})
+app.use((err, req, res, next) => {
+    // Log the error details for debugging
+    console.error(err.stack);  // Logs the error stack trace for development purposes
+  
+    // Send a generic message to the client, ensuring no sensitive data is exposed
+    res.status(500).json({
+      error: "Internal Server Error",  // Generic error message
+      message: "Something went wrong on the server. Please try again later."  // Custom message for the user
+    });
+  });
+
+
+  module.exports = app;
