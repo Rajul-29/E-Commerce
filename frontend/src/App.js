@@ -10,7 +10,7 @@ import men_banner from "./Components/Assets/banner_mens.png";
 import kid_banner from "./Components/Assets/banner_kids.png";
 import LoginSignup from "./Pages/LoginSignup";
 
-export const backend_url = 'https://e-commerce-website-backend-jld6.onrender.com';
+export const backend_url = 'https://sportzbuy-backend.vercel.app/';
 export const currency = '₹';
 
 function App() {
