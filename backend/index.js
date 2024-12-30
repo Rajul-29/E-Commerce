@@ -1,3 +1,4 @@
+const port = 4000;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -6,15 +7,9 @@ const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
 const { type } = require("os");
-const { get } = require("http");
 
 app.use(express.json());
-app.use(cors({
-    origin:["https://sportzbuy.vercel.app/"],
-    methods: ["POST", "GET"],
-    credentials:true
-    }
-));
+app.use(cors());
 
 // Database Connection With MongoDB
 mongoose.connect("mongodb+srv://rajul29:be8bykKdRpZZNvV4@cluster0.ckw0q.mongodb.net/e-commerce");
@@ -43,7 +38,7 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-        image_url:`https://sportzbuy-backend.vercel.app/images/${req.file.filename}`
+        image_url:`http://localhost:${port}/images/${req.file.filename}`
     })
 })
 
@@ -260,16 +255,12 @@ app.post('/getcart',fetchUser, async (req,res)=>{
     res.json(userData.cartData);
 })
 
-app.use((err, req, res, next) => {
-    // Log the error details for debugging
-    console.error(err.stack);  // Logs the error stack trace for development purposes
-  
-    // Send a generic message to the client, ensuring no sensitive data is exposed
-    res.status(500).json({
-      error: "Internal Server Error",  // Generic error message
-      message: "Something went wrong on the server. Please try again later."  // Custom message for the user
-    });
-  });
-
-
-  module.exports = app;
+app.listen(port,(error)=>{
+    if (!error){
+        console.log("Server Running on Port "+port)
+    }
+    else
+    {
+        console.log("Error : "+error)
+    }
+})
