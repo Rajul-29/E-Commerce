@@ -13,18 +13,14 @@ const Footer = () => {
         <p>SportzBuy</p>
       </div>
       <ul className="footer-links">
-        <li>Company</li>
         <li>Products</li>
-        <li>Offline Stores</li>
-        <li>About</li>
+        <li>Stores</li>
+        <li>About Us</li>
         <li>Contact</li>
       </ul>
       <div className="footer-social-icons">
         <div className="footer-icons-container">
             <img src={instagram_icon} alt="" />
-        </div>
-        <div className="footer-icons-container">
-            <img src={pintrest_icon} alt="" />
         </div>
         <div className="footer-icons-container">
             <img src={whatsapp_icon} alt="" />

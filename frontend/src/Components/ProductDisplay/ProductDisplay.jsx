@@ -13,13 +13,13 @@ const ProductDisplay = ({product}) => {
     <div className="productdisplay">
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-          <img src={backend_url + product.image} alt="img" />
-          <img src={backend_url + product.image} alt="img" />
-          <img src={backend_url + product.image} alt="img" />
-          <img src={backend_url + product.image} alt="img" />
+          <img src={product.image} alt="img" />
+          <img src={product.image} alt="img" />
+          <img src={product.image} alt="img" />
+          <img src={product.image} alt="img" />
         </div>
         <div className="productdisplay-img">
-          <img className="productdisplay-main-img" src={backend_url + product.image} alt="img" />
+          <img className="productdisplay-main-img" src={product.image} alt="img" />
         </div>
       </div>
       <div className="productdisplay-right">
@@ -30,7 +30,7 @@ const ProductDisplay = ({product}) => {
           <img src={star_icon} alt="" />
           <img src={star_icon} alt="" />
           <img src={star_dull_icon} alt="" />
-          <p>(122)</p>
+          <p>(29)</p>
         </div>
         <div className="productdisplay-right-prices">
           <div className="productdisplay-right-price-old">{currency}{product.old_price}</div>
@@ -49,8 +49,16 @@ const ProductDisplay = ({product}) => {
             <div>XXL</div>
           </div>
         </div>
-        <button onClick={()=>addToCart(product.id)}>ADD TO CART</button>
-        <p className="productdisplay-right-category"><span>Category :</span> Women, T-shirt, Crop Top</p>
+        <button 
+        onClick={() => {
+          addToCart(product.id); 
+          alert(`${product.name} has been added to the cart!`);
+        }}
+      >
+        ADD TO CART
+      </button>
+
+        <p className="productdisplay-right-category"><span>Category :</span> {product.category}</p>
         <p className="productdisplay-right-category"><span>Tags :</span> Modern, Latest</p>
       </div>
     </div>
