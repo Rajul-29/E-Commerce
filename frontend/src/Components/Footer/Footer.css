@@ -15,6 +15,9 @@
     color: #383838;
     font-size: 30px;
     font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 1rem;
+    cursor: default;
 }
 .footer-logo img{
     width: 50px;
@@ -38,7 +41,7 @@
 .footer-icons-container{
     padding: 10px;
     padding-bottom: 6px;
-    background: #fbfbfb;
+    background: #ffffff;
     border: 1px solid #ebebeb;
 }
 .footer-icons-container img{

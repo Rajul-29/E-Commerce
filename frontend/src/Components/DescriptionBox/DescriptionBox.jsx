@@ -13,9 +13,7 @@ const DescriptionBox = () => {
           buying and selling of products or services over the internet. It
           serves as a virtual marketplace where businesses and individuals can
           showcase their products, interact with customers, and conduct
-          transactions without the need for a physical presence. E-commerce
-          websites have gained immense popularity due to their convenience,
-          accessibility, and the global reach they offer.
+          transactions without the need for a physical presence.
         </p>
         <p>
           E-commerce websites typically display products or services along with
